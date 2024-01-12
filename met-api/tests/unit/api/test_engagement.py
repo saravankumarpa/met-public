@@ -100,15 +100,16 @@ def test_tenant_id_in_create_engagements(client, jwt, session,
     assert response.status_code == 200
     assert response.json['tenant_id'] == str(tenant_2.id)
 
+
 @pytest.mark.parametrize('engagement_info', [TestEngagementInfo.engagement1])
 def test_add_engagements_invalid(client, jwt, session, engagement_info,
-                                 setup_admin_user_and_claims):  # pylint:disable=unused-argument
+                                 setup_unprivileged_user_and_claims):  # pylint:disable=unused-argument
     """Assert that an engagement can not be POSTed without authorisaiton."""
-    user, claims = setup_admin_user_and_claims
+    user, claims = setup_unprivileged_user_and_claims
     headers = factory_auth_header(jwt=jwt, claims=claims)
     rv = client.post('/api/engagements/', data=json.dumps(engagement_info),
                      headers=headers, content_type=ContentType.JSON.value)
-    assert rv.status_code == 403
+    assert rv.status_code == 401
 
 
 @pytest.mark.parametrize('engagement_info', [TestEngagementInfo.engagement1])
