@@ -62,6 +62,15 @@ class TestUserInfo(dict, Enum):
         'tenant_id': '2'
     }
 
+    user_staff_3 = {
+        'first_name': fake.name(),
+        'middle_name': fake.name(),
+        'last_name': fake.name(),
+        'email_address': fake.email(),
+        'status_id': UserStatus.ACTIVE.value,
+        'tenant_id': '3'
+    }
+
 
 class TestParticipantInfo(dict, Enum):
     """Test scenarios of participant."""
