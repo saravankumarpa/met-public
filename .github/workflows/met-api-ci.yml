@@ -2,8 +2,6 @@ name: MET API CI
 
 on:
   pull_request:
-    branches:
-      - main
     paths:
       - "met-api/**"
   push:
@@ -19,7 +17,7 @@ jobs:
   setup-job:
     runs-on: ubuntu-20.04
 
-    if: github.repository == 'bcgov/met-public'
+    if: github.repository == 'saravankumarpa/met-public'
 
     steps:
       - uses: actions/checkout@v2
