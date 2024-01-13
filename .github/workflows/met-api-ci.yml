@@ -68,7 +68,7 @@ jobs:
       KEYCLOAK_ADMIN_SECRET: "2222222222"
       KEYCLOAK_AUTH_AUDIENCE: "met-web"
       KEYCLOAK_AUTH_CLIENT_SECRET: "1111111111"
-      KEYCLOAK_BASE_URL: "http://localhost:8081"
+      KEYCLOAK_BASE_URL: "http://localhost:8081/auth"
       KEYCLOAK_REALMNAME: "demo"
       USE_KEYCLOAK_DOCKER: "YES"
     
